@@ -7,8 +7,9 @@ export const tasksSlice = createSlice({
         
         addTask: (state, action)=>{
              let a=0;
+             const length = JSON.parse(JSON.stringify(state)).length
             const newTask = {
-                id: new Date(),
+                id: length,
                name: action.payload.task
             }
             state.push(newTask);
@@ -16,10 +17,19 @@ export const tasksSlice = createSlice({
         deleteTask: (state, action)=>{
             return state.filter((item) => item.id !== action.payload.id);
         },
-        editTask:(state,action)=>{
-            return 
-            
-            
+        editTask: (state, action) => {
+          
+
+            console.log(action.payload.id)
+            const todoList = JSON.parse(JSON.stringify(state));
+            return todoList.map(item => {
+                if(item.id === action.payload.id){
+                    return {
+                        ...item, name: action.payload.task
+                    }
+                }
+                return item;
+            });
         }
     }
     

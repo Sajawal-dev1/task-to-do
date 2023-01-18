@@ -1,40 +1,35 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editTask } from "../redux/tasksSlice";
 
-const EditTodo = () => {
-	const [value, setValue] = useState('');
-
-	const dispatch = useDispatch();
-
-	const onSubmit = () => {	
+const EditTodo=(id)=>{
+    const [newval, newValue] = useState('');
+    const dispatch=useDispatch();
+    const edit=()=>{
 		dispatch(
-			addTask({
-				task: value
+			editTask({
+				id:id,
+				task:newval
+
+
 			})
-		);
+        )
+        return (
+            <div>
+                <input
+            type="text"
+            placeholder="edit task"
+            value={newval}
+            onChange={(event) => newValue(event.target.newval)}
+        ></input>
+        <button  onClick={()=>{
+                edit();
+            }}>Edit</button>
+            </div>
+        
+        );
+	}
 
 
-	};
-
-	return (
-		<div >
-			<input
-				type="text"
-				
-		      
-				placeholder="Add task"
-				value={value}
-				onChange={(event) => setValue(event.target.value)}
-			></input>
-			<input type="checkbox"></input>
-			
-
-			<button  onClick={onSubmit}>
-				Save
-			</button>
-		</div>
-	);
-};
-
-export default AddTodo;
+}
+export default EditTodo;
