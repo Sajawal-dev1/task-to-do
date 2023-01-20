@@ -12,7 +12,9 @@ const AddTodo = () => {
 			addTask({
 				task: value
 			})
+			
 		);
+		setValue(" ");
 	};
 	return (
 		<div className='add-todo'>

@@ -18,6 +18,7 @@ const TodoItem = ({ id, title }) => {
 
 			})
 		)
+		setValue(" ");
 	}
 	const removeTask=()=>{
 		dispatch(
