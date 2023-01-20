@@ -2,11 +2,14 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
 import { deleteTask, editTask } from "../redux/tasksSlice";
+import "../App.css";
 
 const TodoItem = ({ id, title }) => {
 	const [newval, setValue] = useState('');
+	const [check, setcheck] = useState('');
     const dispatch=useDispatch();
-    const edit=()=>{
+
+	const edit=()=>{
 		console.log(newval)
 		dispatch(
 			editTask({
@@ -16,7 +19,6 @@ const TodoItem = ({ id, title }) => {
 			})
 		)
 	}
-
 	const removeTask=()=>{
 		dispatch(
 			deleteTask({
@@ -26,30 +28,37 @@ const TodoItem = ({ id, title }) => {
 	}
 	
 
+	
+	
+
 	return (
-		<li >
-			
-			<h1>
-			<input type="checkbox"></input>
-			{title}
-			</h1>
+		<ul className='task-item'>
 			<div>
-				<button  onClick={()=>{
+			{title}
+			
+			</div>
+			<br></br>
+			<div className='break-line'>
+				<button className='remove-task-button'  onClick={()=>{
 					removeTask();
 				}}>Delete</button>
+				<br></br>
            </div>
-        <input
-            type="text"
-            placeholder="edit task"
-            value={newval}
-            onChange={(event) => setValue(event.target.value)}
-        ></input>
-		<div>
-            <button  onClick={()=>{
+		   <br></br>
+		   <div className='add-todo'>
+         	<input
+			 className='edit-input'
+			 type="text"
+			 placeholder="edit task"
+			 value={newval}
+			 onChange={(event) => setValue(event.target.value)}
+		 ></input>	
+            <button className='edit-btn' onClick={()=>{
                 edit();
-            }}>Edit</button>
+            }}>Edit </button>
+			
 			</div>
-		</li>
+		</ul>
 	);
 };
 

@@ -36,3 +36,120 @@
     transform: rotate(360deg);
   }
 }
+.background{
+    background-color: rgb(8, 9, 8);
+
+}
+
+/*akvmlkfvlkfvlkavkalvaklfkvlkqmnhnnnnnnnnnnnnnnnnnnnvlkq*/
+
+body{
+  background-color:#a03d3d;;
+  padding: 0px;
+  margin: 0px;
+  color: rgba(0,0,0,0.87);
+  font-family: 'Roboto', sans-serif;
+}
+
+.app{
+  text-align: center;
+  background-color: white;
+  height: auto;
+  min-height: 100vh;
+  width : 40%;
+  margin: auto;
+  padding : 30px;
+  box-shadow: 2px 2px 20px #ececec;
+}
+
+.app-title{
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.add-todo{
+  margin: 30px 0px;
+}
+
+.task-input{
+  height : 25px;
+  width : 200px;
+  border : 1px solid #e4f2f7;
+  border-radius: 6px;
+  padding : 2px 10px;
+  margin-right : 10px;
+  }
+  .edit-input{
+    height : 25px;
+    width : 200px;
+    border : 1px solid #e4f2f7;
+    border-radius: 6px;
+    padding : 2px 10px;
+    margin-right : 10px;
+    position:fixed;
+    left:500px
+
+  }
+
+.task-input:focus {
+  box-shadow: 0 0 8px rgba(30, 79, 49, 0.6);
+  outline: none;
+}
+
+.task-button{
+  height : 29px;
+  width : 50px;
+  border : none;
+  border-radius: 6px;
+  background-color: #05386b;
+  color:white;
+}
+
+.task-button:hover{
+  cursor: pointer;
+}
+
+.tasks-list{
+  list-style: none;
+  margin: auto;
+  padding : 0px;
+}
+
+.task-item{
+  margin: 15px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding : 8px 40px;
+}
+
+.remove-task-button{
+  background-color: #ac3b61;
+  height: 20px;
+  color: white;
+  border-radius: 4px;
+  width: 70px;
+  border:none;
+  position: fixed;
+  left: 800px;
+}
+.edit-btn{
+  background-color: #ac3b61;
+  height: 29px;
+  color: white;
+  border-radius: 4px;
+  width: 70px;
+  border:none;
+  position: fixed;
+  left: 800px;
+
+
+
+}
+
+.remove-task-button:hover{
+  cursor: pointer;
+}
+.break-line{
+  content: "\a";
+  white-space: pre;
+}

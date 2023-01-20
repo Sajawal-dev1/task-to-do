@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import "../App.css";
 
 export const tasksSlice = createSlice({
     name: "tasks",
