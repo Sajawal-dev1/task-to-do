@@ -7,7 +7,7 @@ import "../App.css";
 const TaskFeatures = ({ id, title }) => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
+  const [check, setCheck] = useState(false);
   return (
     <div>
       <ul className="task-item">
@@ -20,11 +20,11 @@ const TaskFeatures = ({ id, title }) => {
           Delete
         </button>
         <div>
-          <button className="edit-btn" onClick={() => setShow(!show)}>
+          <button className="edit-btn" onClick={() => setCheck(!check)}>
             Edit
           </button>
         </div>
-        {show && (
+        {check && 
           <div className="add-todo">
             <input
               className="edit-input"
@@ -35,13 +35,13 @@ const TaskFeatures = ({ id, title }) => {
             <button
               className="update-edit-btn"
               onClick={handleSubmit((data) =>
-                dispatch(editTask({ ...data, id }), setShow(false))
+                dispatch(editTask({ ...data, id }), setCheck(false))
               )}
             >
               Update Edit
             </button>
           </div>
-        )}
+        }
       </ul>
     </div>
   );
