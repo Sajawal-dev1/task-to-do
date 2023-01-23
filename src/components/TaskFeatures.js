@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { deleteTask, editTask } from "../redux/tasksSlice";
+import { deleteTask, editTask } from "redux/tasksSlice";
 import { useState } from "react";
-import "../App.css";
+import "App.css";
 const TaskFeatures = ({ id, title }) => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();

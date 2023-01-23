@@ -1,8 +1,8 @@
 import React from "react";
-import AddTodo from "./components/AddTaskField";
-import TodoList from "./components/TasksList";
-import "./App.css";
-import "./AddTodo.css";
+import AddTodo from "components/AddTaskField";
+import TodoList from "components/TasksList";
+import "App.css";
+import "AddTodo.css";
 const App = () => {
   return (
     <div className="app">

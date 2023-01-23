@@ -1,7 +1,7 @@
 import React from "react";
-import TodoItem from "./TaskFeatures";
+import TodoItem from "components/TaskFeatures";
 import { useSelector } from "react-redux";
-import "../App.css";
+import "App.css";
 const TasksList = () => {
   const todos = useSelector((state) => {
     return state.tasks;

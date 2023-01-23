@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { addTask } from "../redux/tasksSlice";
+import { addTask } from "redux/tasksSlice";
 import { useForm } from "react-hook-form";
-import "../App.css";
+import "App.css";
 const AddTaskField = () => {
   const { register, resetField, handleSubmit } = useForm();
   const dispatch = useDispatch();
