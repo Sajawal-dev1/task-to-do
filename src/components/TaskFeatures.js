@@ -24,7 +24,7 @@ const TaskFeatures = ({ id, title }) => {
             Edit
           </button>
         </div>
-        {check && 
+        {check && (
           <div className="add-todo">
             <input
               className="edit-input"
@@ -41,7 +41,7 @@ const TaskFeatures = ({ id, title }) => {
               Update Edit
             </button>
           </div>
-        }
+        )}
       </ul>
     </div>
   );
