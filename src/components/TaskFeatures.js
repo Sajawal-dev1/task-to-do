@@ -47,4 +47,3 @@ const TaskFeatures = ({ id, title }) => {
   );
 };
 export default TaskFeatures;
-
