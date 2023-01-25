@@ -1,16 +1,14 @@
 import React from "react";
-import TodoItem from "components/TaskFeatures";
-import { useSelector } from "react-redux";
 import "App.css";
-const TasksList = () => {
-  const todos = useSelector((state) => {
-    return state.tasks;
-  });
+import TaskFeaturesContainer from "container/TaskFeaturesContainer";
+//import TaskFeatures from "./TaskFeatures";
+const TasksList = ({todos}) => { 
+  console.log(todos);
   return (
     <ul className="task-list">
-      {todos.map((todo) => (
-        <TodoItem id={todo.id} title={todo.name} />
-      ))}
+       {todos.map((todo) => (
+        <TaskFeaturesContainer id={todo.id} title={todo.name} />
+      ))} 
     </ul>
   );
 };
