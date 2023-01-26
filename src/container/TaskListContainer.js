@@ -7,4 +7,3 @@ const mapStateToProps = (state) => {
 };
 const TaskListContainer = connect(mapStateToProps, null)(TasksList);
 export default TaskListContainer;
- 

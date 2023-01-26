@@ -1,14 +1,12 @@
 import React from "react";
 import "App.css";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
-//import TaskFeatures from "./TaskFeatures";
-const TasksList = ({todos}) => { 
-  console.log(todos);
+const TasksList = ({ todos }) => {
   return (
     <ul className="task-list">
-       {todos.map((todo) => (
+      {todos.map((todo) => (
         <TaskFeaturesContainer id={todo.id} title={todo.name} />
-      ))} 
+      ))}
     </ul>
   );
 };

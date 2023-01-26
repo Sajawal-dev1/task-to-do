@@ -2,21 +2,20 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "App.css";
-const TaskFeatures = ({ id, title,editTask,deleteTask }) => {
+const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
   const { register, handleSubmit } = useForm();
   const [check, setCheck] = useState(false);
   return (
     <div>
       <ul className="task-item">
-        <div>{title}</div>
-        <br></br>
-        <button
-          className="remove-task-button"
-          onClick={() => (deleteTask({ id }))}
-        >
-          Delete
-        </button>
+        <div className="titte">{title}</div>
         <div>
+          <button
+            className="remove-task-button"
+            onClick={() => deleteTask({ id })}
+          >
+            Delete
+          </button>
           <button className="edit-btn" onClick={() => setCheck(!check)}>
             Edit
           </button>
@@ -31,11 +30,11 @@ const TaskFeatures = ({ id, title,editTask,deleteTask }) => {
             ></input>
             <button
               className="update-edit-btn"
-              onClick={handleSubmit((data) =>
-              (editTask({ ...data, id }), setCheck(false))
+              onClick={handleSubmit(
+                (data) => (editTask({ ...data, id }), setCheck(false))
               )}
             >
-              Update Edit
+              Update
             </button>
           </div>
         )}

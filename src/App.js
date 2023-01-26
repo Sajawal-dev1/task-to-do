@@ -1,5 +1,5 @@
 import React from "react";
-import AddTaskFieldContainer from "container/AddTaskFieldContainer"
+import AddTaskFieldContainer from "container/AddTaskFieldContainer";
 import TaskListContainer from "container/TaskListContainer";
 import "App.css";
 import "AddTodo.css";
@@ -13,4 +13,3 @@ const App = () => {
   );
 };
 export default App;
-
