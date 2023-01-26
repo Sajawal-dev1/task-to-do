@@ -1,29 +1,24 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { deleteTask, editTask } from "redux/tasksSlice";
 import { useState } from "react";
 import "App.css";
-const TaskFeatures = ({ id, title }) => {
+const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
   const { register, handleSubmit } = useForm();
-  const dispatch = useDispatch();
   const [check, setCheck] = useState(false);
   return (
     <div>
       <ul className="task-item">
-        <div>{title}</div>
-        <br></br>
-        <button
-          className="remove-task-button"
-          onClick={() => dispatch(deleteTask({ id }))}
-        >
-          Delete
-        </button>
-        <div>
+        <div className="titte">{title}</div>
+          <button
+            className="remove-task-button"
+            onClick={() => deleteTask({ id })}
+          >
+            Delete
+          </button>
           <button className="edit-btn" onClick={() => setCheck(!check)}>
             Edit
           </button>
-        </div>
+      
         {check && (
           <div className="add-todo">
             <input
@@ -34,11 +29,11 @@ const TaskFeatures = ({ id, title }) => {
             ></input>
             <button
               className="update-edit-btn"
-              onClick={handleSubmit((data) =>
-                dispatch(editTask({ ...data, id }), setCheck(false))
+              onClick={handleSubmit(
+                (data) => (editTask({ ...data, id }), setCheck(false))
               )}
             >
-              Update Edit
+              Update
             </button>
           </div>
         )}
