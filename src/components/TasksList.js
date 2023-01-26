@@ -5,7 +5,7 @@ const TasksList = ({ todos }) => {
   return (
     <ul className="task-list">
       {todos.map((todo) => (
-        <TaskFeaturesContainer id={todo.id} title={todo.name} />
+        <TaskFeaturesContainer key ={todo.id} id={todo.id} title={todo.name} />
       ))}
     </ul>
   );
