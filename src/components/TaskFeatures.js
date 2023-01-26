@@ -9,7 +9,6 @@ const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
     <div>
       <ul className="task-item">
         <div className="titte">{title}</div>
-        <div>
           <button
             className="remove-task-button"
             onClick={() => deleteTask({ id })}
@@ -19,7 +18,7 @@ const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
           <button className="edit-btn" onClick={() => setCheck(!check)}>
             Edit
           </button>
-        </div>
+      
         {check && (
           <div className="add-todo">
             <input
