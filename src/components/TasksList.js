@@ -3,11 +3,11 @@ import "App.css";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
 const TasksList = ({ todos }) => {
   return (
-    <ul className="task-list">
+    <div className="">
       {todos.map((todo) => (
         <TaskFeaturesContainer key ={todo.id} id={todo.id} title={todo.name} />
       ))}
-    </ul>
+      </div>
   );
 };
 export default TasksList;

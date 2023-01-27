@@ -1,32 +1,36 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { MdDelete,MdModeEditOutline } from "react-icons/md"
 import "App.css";
 const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
   const { register, handleSubmit } = useForm();
   const [check, setCheck] = useState(false);
   return (
-    <div>
-      <ul className="task-item">
-        <div className="titte">{title}</div>
-          <button
-            className="remove-task-button"
+    <div >
+      <div className="Todo">
+        <div>{title}</div>
+        <div className="Todo-buttons ">
+          <button  onClick={() => setCheck(!check)}>
+           <MdModeEditOutline size='30px'/> 
+          </button>
+          <button 
             onClick={() => deleteTask({ id })}
           >
-            Delete
+
+            <MdDelete size='30px'/>
           </button>
-          <button className="edit-btn" onClick={() => setCheck(!check)}>
-            Edit
-          </button>
-      
-        {check && (
-          <div className="add-todo">
+          </div>
+          </div>
+        {check && ( 
+            <div className="Todo-edit-form">
             <input
               className="edit-input"
               type="text"
               placeholder="edit task"
               {...register("new_value", { required: true })}
             ></input>
+            <div>
             <button
               className="update-edit-btn"
               onClick={handleSubmit(
@@ -35,10 +39,11 @@ const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
             >
               Update
             </button>
+            </div>
           </div>
         )}
-      </ul>
     </div>
+  
   );
 };
 export default TaskFeatures;
