@@ -1,22 +1,12 @@
-
 /* MY CSS*/
-
-/*///////////////////*/
-.Paragraph{
+.Paragraph {
+  font-size: small;
   font-weight: bold;
-  color:white;
-  text-decoration: underline;
-  text-underline-offset: 8px;
-}
-
-.heading{
-  text-align:start;
-  margin:5px;
   color: white;
-  font-weight:bolder;
-
- }
-
+}
+.hr {
+  border-bottom: 2px white;
+}
 .Todo {
   display: flex;
   margin: 0 -3rem 4px;
@@ -25,59 +15,40 @@
   align-items: center;
   background: rgba(75, 47, 47, 0.1);
 }
-.Todo-tittle{
-  
+.Todo-tittle {
   margin: 0 -3rem 4px;
   padding: 1.1rem 3rem;
   justify-content: space-between;
   align-items: center;
   background: rgba(250, 245, 245, 0.1);
-
-
-
-
 }
-
-
 .Todo-task {
   position: relative;
-  transition: opacity 0.4s linear;
 }
-
 .Todo-buttons {
-  flex-shrink: 0 ; 
-  padding-left: 0.7em; 
+  flex-shrink: 0;
+  padding-left: 0.7em;
 }
-
 .Todo-buttons button {
-  border:50px ; 
+  border: 50px;
   font-size: 1em;
   margin: 0.4em;
-  background:none;
+  background: none;
   cursor: pointer;
   color: #fff;
 }
-
-.Todo-edit-form {
+.Todo-edit-field {
   display: flex;
   flex-wrap: wrap;
 }
-
-.Todo-edit-form label {
-  min-width: 100%;
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-}
-
-.Todo-edit-form input {
+.Todo-edit-field input {
   flex-grow: 1;
   border: none;
   background: #f7f1f1;
   padding: 0 1.5em;
   font-size: initial;
 }
-
-.Todo-edit-form button {
+.Todo-edit-field button {
   padding: 0 1.3rem;
   margin-top: 0px;
   margin-left: 20px;
@@ -85,96 +56,60 @@
   border: none;
   align-items: center;
   background: none;
-  color:white;
+  color: white;
   border: 0.5px solid white;
-  text-transform: uppercase;
   font-weight: bold;
   margin-left: 5px;
   cursor: pointer;
-
 }
-
-.Todo-edit-form button:hover {
-  background: #ff5e5e;
-}
-
-.Todo-edit-form input,
-.Todo-edit-form button {
+.Todo-edit-field input,
+.Todo-edit-field button {
   font-family: "Quicksand", sans-serif;
   height: 3rem;
 }
-
-
-/*/////////*/
 .TodoList {
   margin: 4rem auto;
   padding: 2rem 3rem 3rem;
   max-width: 500px;
-  background: #FF6666;
+  background: #ff6666;
   color: white;
   font-weight: bold;
-  
 }
-
-.TodoList ul {
-  margin-top: 2.6rem;
-  list-style: none;
-}
-
 .TodoList h1 {
-  font-weight: normal;
   font-size: 2.6rem;
-  letter-spacing: 0.05em;
-  
 }
-
-.TodoList h1 span {
-  display: block;
-  font-size: 0.8rem;
-  margin-bottom: 0.7rem;
-  margin-left: 3px;
-  margin-top: 0.2rem;
-}
-
-
- /*/////*/
-
- .new-todo {
+.new-todo {
   margin-top: 30%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 30px;
 }
-
 .new-todo input {
-  flex-grow: 1;
   border: none;
   background: #f7f1f1;
   padding: 0 1.5em;
   font-size: initial;
   margin-bottom: 40px;
 }
-
 .new-todo button {
   padding: 0 1.3rem;
   border: none;
-  background:none;
+  background: none;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
   border: 0.5px solid white;
-  padding-top:11px;
+  padding-top: 11px;
   margin-left: 5px;
- cursor: pointer;
+  cursor: pointer;
 }
-
-
-
 .new-todo input,
 .new-todo button {
   font-family: "Quicksand", sans-serif;
   height: 3rem;
 }
-
-
-  
+.new-todo label {
+  min-width: 100%;
+  margin-bottom: -20px;
+  font-size: 1.3rem;
+}
