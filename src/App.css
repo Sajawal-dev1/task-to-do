@@ -7,6 +7,9 @@
 .hr {
   border-bottom: 2px white;
 }
+.complete {
+  text-decoration: line-through;
+}
 .Todo {
   display: flex;
   margin: 0 -3rem 4px;
