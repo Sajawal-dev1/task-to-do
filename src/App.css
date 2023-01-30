@@ -10,7 +10,7 @@
 .complete{
  text-decoration: line-through;
 }
-.Todo {
+.todo {
   display: flex;
   margin: 0 -3rem 4px;
   padding: 1.1rem 3rem;
@@ -18,21 +18,21 @@
   align-items: center;
   background: rgba(75, 47, 47, 0.1);
 }
-.Todo-tittle {
+.todo-tittle {
   margin: 0 -3rem 4px;
   padding: 1.1rem 3rem;
   justify-content: space-between;
   align-items: center;
   background: rgba(250, 245, 245, 0.1);
 }
-.Todo-task {
+.todo-task {
   position: relative;
 }
-.Todo-buttons {
+.todo-buttons {
   flex-shrink: 0;
   padding-left: 0.7em;
 }
-.Todo-buttons button {
+.todo-buttons button {
   border: 50px;
   font-size: 1em;
   margin: 0.4em;
@@ -40,18 +40,18 @@
   cursor: pointer;
   color: #fff;
 }
-.Todo-edit-field {
+.todo-edit-field {
   display: flex;
   flex-wrap: wrap;
 }
-.Todo-edit-field input {
+.todo-edit-field input {
   flex-grow: 1;
   border: none;
   background: #f7f1f1;
   padding: 0 1.5em;
   font-size: initial;
 }
-.Todo-edit-field button {
+.todo-edit-field button {
   padding: 0 1.3rem;
   margin-top: 0px;
   margin-left: 20px;
@@ -65,12 +65,12 @@
   margin-left: 5px;
   cursor: pointer;
 }
-.Todo-edit-field input,
+.todo-edit-field input,
 .Todo-edit-field button {
   font-family: "Quicksand", sans-serif;
   height: 3rem;
 }
-.Todo-list {
+.todo-list {
   margin: 4rem auto;
   padding: 2rem 3rem 3rem;
   max-width: 500px;
@@ -78,7 +78,7 @@
   color: white;
   font-weight: bold;
 }
-.Todo-list h1 {
+.todo-list h1 {
   font-size: 2.6rem;
 }
 .new-todo {

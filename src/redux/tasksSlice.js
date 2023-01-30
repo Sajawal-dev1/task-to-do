@@ -25,7 +25,7 @@ export const tasksSlice = createSlice({
         if (item.id === action.payload.id) {
           return {
             ...item,
-            name: action.payload.updated_value,
+            name: action.payload.todo,
           };
         }
         return item;
