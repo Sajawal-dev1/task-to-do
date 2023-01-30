@@ -7,8 +7,8 @@
 .hr {
   border-bottom: 2px white;
 }
-.complete {
-  text-decoration: line-through;
+.complete{
+ text-decoration: line-through;
 }
 .Todo {
   display: flex;
@@ -70,7 +70,7 @@
   font-family: "Quicksand", sans-serif;
   height: 3rem;
 }
-.TodoList {
+.Todo-list {
   margin: 4rem auto;
   padding: 2rem 3rem 3rem;
   max-width: 500px;
@@ -78,7 +78,7 @@
   color: white;
   font-weight: bold;
 }
-.TodoList h1 {
+.Todo-list h1 {
   font-size: 2.6rem;
 }
 .new-todo {

@@ -4,7 +4,7 @@ import TaskFeaturesContainer from "container/TaskFeaturesContainer";
 import AddTaskFieldContainer from "container/AddTaskFieldContainer";
 const TasksList = ({ todos }) => {
   return (
-    <div className="TodoList">
+    <div className="Todo-list">
       <h1 className="heading">TODO LIST</h1>
       <h4 className="Paragraph">
         TODO App by MergeStack<hr className="hr"></hr>

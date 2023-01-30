@@ -3,27 +3,13 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import "App.css";
-const TaskFeatures = ({
-  id,
-  title,
-  completed,
-  editTask,
-  deleteTask,
-  toggleComplete,
-}) => {
+const TaskFeatures = ({ id, title,completed, editTask, deleteTask,toggleComplete }) => {
   const { register, handleSubmit } = useForm();
   const [check, setCheck] = useState(false);
   return (
     <div>
       <div className="Todo">
-        <div
-          onClick={() => {
-            toggleComplete({ id, completed: !completed });
-          }}
-          className={"complete" + (completed === false ? "active" : "")}
-        >
-          {title}
-        </div>
+        <div onClick={()=>{toggleComplete({id,completed:!completed})}} className={"complete" + (completed === false ? 'active' : '')} >{title}</div>
         <div className="Todo-buttons ">
           <button onClick={() => setCheck(!check)}>
             <MdModeEditOutline size="30px" />
