@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 .todo-edit-field input,
-.Todo-edit-field button {
+.todo-edit-field button {
   font-family: "Quicksand", sans-serif;
   height: 3rem;
 }

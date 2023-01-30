@@ -41,7 +41,7 @@ const TaskFeatures = ({
             {...register("todo", { required: true })}
           ></input>
           <div>
-            <button
+            <button 
               onClick={handleSubmit(
                 (data) => (editTask({ ...data, id }), setCheck(false))
               )}
