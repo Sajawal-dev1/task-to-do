@@ -1,34 +1,47 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import "App.css";
-const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
+const TaskFeatures = ({
+  id,
+  title,
+  completed,
+  editTask,
+  deleteTask,
+  toggleComplete,
+}) => {
   const { register, handleSubmit } = useForm();
   const [check, setCheck] = useState(false);
   return (
     <div>
-      <ul className="task-item">
-        <div className="titte">{title}</div>
-          <button
-            className="remove-task-button"
-            onClick={() => deleteTask({ id })}
-          >
-            Delete
+      <div className="todo">
+        <div
+          onClick={() => {
+            toggleComplete({ id, completed: !completed });
+          }}
+          className={"complete" + (completed === false ? "active" : "")}
+        >
+          {title}
+        </div>
+        <div className="todo-buttons ">
+          <button onClick={() => setCheck(!check)}>
+            <MdModeEditOutline size="30px" />
           </button>
-          <button className="edit-btn" onClick={() => setCheck(!check)}>
-            Edit
+          <button onClick={() => deleteTask({ id })}>
+            <MdDelete size="30px" />
           </button>
-      
-        {check && (
-          <div className="add-todo">
-            <input
-              className="edit-input"
-              type="text"
-              placeholder="edit task"
-              {...register("new_value", { required: true })}
-            ></input>
-            <button
-              className="update-edit-btn"
+        </div>
+      </div>
+      {check && (
+        <div className="todo-edit-field">
+          <input
+            type="text"
+            placeholder="edit task"
+            {...register("todo", { required: true })}
+          ></input>
+          <div>
+            <button 
               onClick={handleSubmit(
                 (data) => (editTask({ ...data, id }), setCheck(false))
               )}
@@ -36,8 +49,8 @@ const TaskFeatures = ({ id, title, editTask, deleteTask }) => {
               Update
             </button>
           </div>
-        )}
-      </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,13 +1,10 @@
 import React from "react";
-import AddTaskFieldContainer from "container/AddTaskFieldContainer";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import TaskListContainer from "container/TaskListContainer";
 import "App.css";
-import "AddTodo.css";
 const App = () => {
   return (
-    <div className="app">
-      <h1 className="app-title">MY TASK</h1>
-      <AddTaskFieldContainer />
+    <div>
       <TaskListContainer />
     </div>
   );

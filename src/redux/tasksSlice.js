@@ -8,11 +8,16 @@ export const tasksSlice = createSlice({
       const newTask = {
         id: length,
         name: action.payload.value,
+        completed: false,
       };
       state.push(newTask);
     },
     deleteTask: (state, action) => {
       return state.filter((item) => item.id !== action.payload.id);
+    },
+    toggleComplete: (state, action) => {
+      const index = state.findIndex((item) => item.id === action.payload.id);
+      state[index].completed = action.payload.completed;
     },
     editTask: (state, action) => {
       const todoList = JSON.parse(JSON.stringify(state));
@@ -20,7 +25,7 @@ export const tasksSlice = createSlice({
         if (item.id === action.payload.id) {
           return {
             ...item,
-            name: action.payload.new_value,
+            name: action.payload.todo,
           };
         }
         return item;
@@ -28,5 +33,6 @@ export const tasksSlice = createSlice({
     },
   },
 });
-export const { addTask, deleteTask, editTask } = tasksSlice.actions;
+export const { addTask, deleteTask, toggleComplete, editTask } =
+  tasksSlice.actions;
 export default tasksSlice.reducer;

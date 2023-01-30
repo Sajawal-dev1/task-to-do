@@ -3,18 +3,19 @@ import "App.css";
 const AddTaskField = ({ addTask }) => {
   const { register, resetField, handleSubmit } = useForm();
   return (
-    <div className="add-todo">
+    <div className="new-todo">
+      <label>Add New Task</label>
       <input
-        className="task-input"
+        className="new-todo input"
         type="text"
         placeholder="Add task"
         {...register("value", { required: true })}
       ></input>
       <button
-        className="task-button"
+        className="new-todo button"
         onClick={handleSubmit((data) => (addTask(data), resetField("value")))}
       >
-        Save
+        Add ToDo
       </button>
     </div>
   );
