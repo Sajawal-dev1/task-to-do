@@ -55,7 +55,7 @@ const TaskFeatures = ({
           <TextField
             sx={{ marginRight: 1, backgroundColor: "white", borderRadius: 1 }}
             type="text"
-            placeholder="edit task"
+            defaultValue={title}
             {...register("todo", { required: true })}
           ></TextField>
           <div>
