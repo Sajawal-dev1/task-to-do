@@ -4,115 +4,29 @@
   font-weight: bold;
   color: white;
 }
-.hr {
-  border-bottom: 2px white;
+.complete {
+  text-decoration: line-through;
 }
-.complete{
- text-decoration: line-through;
-}
-.todo {
-  display: flex;
-  margin: 0 -3rem 4px;
-  padding: 1.1rem 3rem;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(75, 47, 47, 0.1);
-}
-.todo-tittle {
-  margin: 0 -3rem 4px;
-  padding: 1.1rem 3rem;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(250, 245, 245, 0.1);
-}
-.todo-task {
-  position: relative;
-}
-.todo-buttons {
+.mui-todo-buttons {
   flex-shrink: 0;
   padding-left: 0.7em;
 }
-.todo-buttons button {
-  border: 50px;
+.mui-todo-buttons button {
   font-size: 1em;
-  margin: 0.4em;
-  background: none;
+  border: 50px;
   cursor: pointer;
   color: #fff;
-}
-.todo-edit-field {
-  display: flex;
-  flex-wrap: wrap;
-}
-.todo-edit-field input {
-  flex-grow: 1;
-  border: none;
-  background: #f7f1f1;
-  padding: 0 1.5em;
-  font-size: initial;
-}
-.todo-edit-field button {
-  padding: 0 1.3rem;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-bottom: 3px;
-  border: none;
-  align-items: center;
+  margin: 0.4em;
   background: none;
-  color: white;
-  border: 0.5px solid white;
-  font-weight: bold;
-  margin-left: 5px;
-  cursor: pointer;
-}
-.todo-edit-field input,
-.todo-edit-field button {
-  font-family: "Quicksand", sans-serif;
-  height: 3rem;
 }
 .todo-list {
+  background: #ff6666;
+  color: white;
   margin: 4rem auto;
   padding: 2rem 3rem 3rem;
   max-width: 500px;
-  background: #ff6666;
-  color: white;
   font-weight: bold;
 }
 .todo-list h1 {
   font-size: 2.6rem;
-}
-.new-todo {
-  margin-top: 30%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-.new-todo input {
-  border: none;
-  background: #f7f1f1;
-  padding: 0 1.5em;
-  font-size: initial;
-  margin-bottom: 40px;
-}
-.new-todo button {
-  padding: 0 1.3rem;
-  border: none;
-  background: none;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  border: 0.5px solid white;
-  padding-top: 11px;
-  margin-left: 5px;
-  cursor: pointer;
-}
-.new-todo input,
-.new-todo button {
-  font-family: "Quicksand", sans-serif;
-  height: 3rem;
-}
-.new-todo label {
-  min-width: 100%;
-  margin-bottom: -20px;
-  font-size: 1.3rem;
 }

@@ -10,7 +10,12 @@ const TasksList = ({ todos }) => {
         TODO App by MergeStack<hr className="hr"></hr>
       </h4>
       {todos.map((todo) => (
-        <TaskFeaturesContainer key={todo.id} id={todo.id} title={todo.name} completed={todo.completed} />
+        <TaskFeaturesContainer
+          key={todo.id}
+          id={todo.id}
+          title={todo.name}
+          completed={todo.completed}
+        />
       ))}
       <AddTaskFieldContainer />
     </div>
