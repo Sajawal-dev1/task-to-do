@@ -6,6 +6,10 @@
 }
 .complete {
   text-decoration: line-through;
+ 
+}
+.pointer{
+  cursor: pointer;
 }
 .mui-todo-buttons {
   flex-shrink: 0;

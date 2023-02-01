@@ -11,7 +11,6 @@ const TasksList = ({ todos }) => {
       </h4>
       {todos.map((todo) => (
         <TaskFeaturesContainer
-          key={todo.id}
           id={todo.id}
           title={todo.name}
           completed={todo.completed}
