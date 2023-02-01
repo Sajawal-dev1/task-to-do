@@ -2,7 +2,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
+import { Button, Box, TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import "App.css";
+const useStyles = makeStyles({
+  muiTodo: {
+    display: "flex",
+    margin: "0 -3rem 4px",
+    padding: "1.1rem 3rem",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "rgba(75, 47, 47, 0.1)",
+    cursor: "pointer",
+  },
+  muiTodoEdit: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+});
 const TaskFeatures = ({
   id,
   title,
@@ -11,11 +28,12 @@ const TaskFeatures = ({
   deleteTask,
   toggleComplete,
 }) => {
+  const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const [check, setCheck] = useState(false);
   return (
     <div>
-      <div className="todo">
+      <Box className={classes.muiTodo}>
         <div
           onClick={() => {
             toggleComplete({ id, completed: !completed });
@@ -24,32 +42,34 @@ const TaskFeatures = ({
         >
           {title}
         </div>
-        <div className="todo-buttons ">
-          <button onClick={() => setCheck(!check)}>
+        <Box className={"mui-todo-buttons"}>
+          <Button onClick={() => setCheck(!check)}>
             <MdModeEditOutline size="30px" />
-          </button>
-          <button onClick={() => deleteTask({ id })}>
+          </Button>
+          <Button onClick={() => deleteTask({ id })}>
             <MdDelete size="30px" />
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Box>
+      </Box>
       {check && (
-        <div className="todo-edit-field">
-          <input
+        <Box className={classes.muiTodoEdit}>
+          <TextField
+            sx={{ marginRight: 1, backgroundColor: "white", borderRadius: 1 }}
             type="text"
-            placeholder="edit task"
+            defaultValue={title}
             {...register("todo", { required: true })}
-          ></input>
+          ></TextField>
           <div>
-            <button 
+            <Button
+              sx={{ border: "1px solid white", padding: 1.7, color: "white" }}
               onClick={handleSubmit(
                 (data) => (editTask({ ...data, id }), setCheck(false))
               )}
             >
               Update
-            </button>
+            </Button>
           </div>
-        </div>
+        </Box>
       )}
     </div>
   );
