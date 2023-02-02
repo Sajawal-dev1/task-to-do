@@ -1,24 +1,52 @@
 import { useForm } from "react-hook-form";
-import { Button, Box, TextField } from "@mui/material";
+import { Box } from "@mui/material";
+import Buttons from "components/TodoButtons";
+import Input from "components/TodoInputs";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
+  todoBtn: {
+    color: "white",
+    width: "28%",
+    border: "1px solid white",
+    height: "56px",
+    marginTop: "auto",
+    textAlign: "center",
+    marginLeft: "71%",
+    bottom:"56px"
+  },
+  textField: {
+    marginRight: 1,
+    backgroundColor: "white",
+    borderRadius: 1,
+    width: "70%",
+  },
+});
 const AddTaskField = ({ addTask }) => {
-  const { register, resetField, handleSubmit } = useForm();
+  const classes = useStyles();
+  const { resetField, handleSubmit, control } = useForm({
+    defaultValues: {
+      FirstName: "",
+    },
+  });
+  const submit = handleSubmit((data) => (addTask(data), resetField("value")));
   return (
-    <Box sx={{ marginTop: 30 % { display: "flex" } }}>
-      <h3>Add New Task</h3>
-      <TextField
-        sx={{ marginRight: 1, backgroundColor: "white", borderRadius: 1 }}
-        disableUnderline
-        variant="outlined"
-        type="text"
-        {...register("value", { required: true })}
-      ></TextField>
-      <Button
-        sx={{ border: "1px solid white", padding: 1.7, color: "white" }}
-        onClick={handleSubmit((data) => (addTask(data), resetField("value")))}
-      >
-        Add ToDo
-      </Button>
-    </Box>
+      <Box sx={{ marginTop: 30 % { display: "flex" } }}>
+        <h3>Add New Task</h3>
+        <Input
+          className={classes.textField}
+          control={control}
+          name="value"
+          placeholder="Add ToDo"
+          rules={{ required: true }}
+          defaultValue=" "
+        />
+      <Buttons
+        size="small"
+        className={classes.todoBtn}
+        onClick={submit}
+        value="Add TODO"
+      />
+       </Box>
   );
 };
 export default AddTaskField;
