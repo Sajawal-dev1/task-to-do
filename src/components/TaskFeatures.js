@@ -25,11 +25,10 @@ const useStyles = makeStyles({
     color: "white",
     padding: 14,
     marginLeft: "20%",
-    
+    marginRight:"20%"
   },
   editField: {
     display: "flex",
-    marginRight: 1,
     backgroundColor: "white",
     borderRadius: 1,
     width: "150%",
