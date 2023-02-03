@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { useController } from "react-hook-form";
 function Input({ name, placeholder, className, defaultValue, rules, control }) {
-  const { field } = useController({ name, control });
+  const { field } = useController({ name, control,rules });
   return (
     <div>
     <TextField

@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 });
 const AddTaskField = ({ addTask }) => {
   const classes = useStyles();
-  const { resetField, handleSubmit, control } = useForm({});
+  const { resetField, handleSubmit, control } = useForm({defaultValues:{todo:""}});
   const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
   return (
     <Box sx={{ marginTop: 30 % { display: "flex" } }}>
@@ -35,10 +35,8 @@ const AddTaskField = ({ addTask }) => {
         name="todo"
         placeholder="Add ToDo"
         rules={{ required: true }}
-        defaultValue=" "
       />
       <Buttons
-        size="small"
         className={classes.todoBtn}
         onClick={submit}
         value="Add TODO"
