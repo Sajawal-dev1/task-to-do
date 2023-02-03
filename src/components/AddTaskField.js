@@ -12,7 +12,8 @@ const useStyles = makeStyles({
     marginTop: "auto",
     textAlign: "center",
     marginLeft: "71%",
-    bottom:"56px"
+    marginRight: "20%",
+    bottom: "56px",
   },
   textField: {
     marginRight: 1,
@@ -23,30 +24,26 @@ const useStyles = makeStyles({
 });
 const AddTaskField = ({ addTask }) => {
   const classes = useStyles();
-  const { resetField, handleSubmit, control } = useForm({
-    defaultValues: {
-      FirstName: "",
-    },
-  });
-  const submit = handleSubmit((data) => (addTask(data), resetField("value")));
+  const { resetField, handleSubmit, control } = useForm({});
+  const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
   return (
-      <Box sx={{ marginTop: 30 % { display: "flex" } }}>
-        <h3>Add New Task</h3>
-        <Input
-          className={classes.textField}
-          control={control}
-          name="value"
-          placeholder="Add ToDo"
-          rules={{ required: true }}
-          defaultValue=" "
-        />
+    <Box sx={{ marginTop: 30 % { display: "flex" } }}>
+      <h3>Add New Task</h3>
+      <Input
+        className={classes.textField}
+        control={control}
+        name="todo"
+        placeholder="Add ToDo"
+        rules={{ required: true }}
+        defaultValue=" "
+      />
       <Buttons
         size="small"
         className={classes.todoBtn}
         onClick={submit}
         value="Add TODO"
       />
-       </Box>
+    </Box>
   );
 };
 export default AddTaskField;

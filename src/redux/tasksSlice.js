@@ -7,7 +7,7 @@ export const tasksSlice = createSlice({
       const length = JSON.parse(JSON.stringify(state)).length;
       const newTask = {
         id: length,
-        name: action.payload.value,
+        name: action.payload.todo,
         completed: false,
       };
       state.push(newTask);

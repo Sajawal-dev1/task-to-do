@@ -2,11 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
-import { Box, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Input from "components/TodoInputs";
 import Buttons from "components/TodoButtons";
-import "App.css";
 const useStyles = makeStyles({
   muiTodo: {
     display: "flex",
@@ -23,10 +22,10 @@ const useStyles = makeStyles({
   },
   muiEditBtn: {
     border: "1px solid white",
-    padding: 1.7,
     color: "white",
     padding: 14,
     marginLeft: "20%",
+    marginRight: "10%",
   },
   editField: {
     display: "flex",
@@ -46,11 +45,9 @@ const TaskFeatures = ({
 }) => {
   const classes = useStyles();
   const { control, handleSubmit } = useForm();
-  const [check, setCheck] = useState(false);
-  const edit_btn = () => setCheck(!check);
-  const delete_btn = () => deleteTask({ id });
-  const update_btn = handleSubmit(
-    (data) => (editTask({ ...data, id }), setCheck(false))
+  const [showEditField, setShowEditField] = useState(false);
+  const updateBtn = handleSubmit(
+    (data) => (editTask({ ...data, id }), setShowEditField(false))
   );
   return (
     <div>
@@ -65,13 +62,16 @@ const TaskFeatures = ({
         </div>
         <Box className={"mui-todo-buttons"}>
           <Buttons
-            onClick={edit_btn}
+            onClick={() => setShowEditField(!showEditField)}
             value={<MdModeEditOutline size="30px" />}
           />
-          <Buttons onClick={delete_btn} value={<MdDelete size="30px" />} />
+          <Buttons
+            onClick={() => deleteTask({ id })}
+            value={<MdDelete size="30px" />}
+          />
         </Box>
       </Box>
-      {check && (
+      {showEditField && (
         <Box className={classes.muiTodoEdit}>
           <Input
             className={classes.editField}
@@ -82,7 +82,7 @@ const TaskFeatures = ({
           />
           <Buttons
             className={classes.muiEditBtn}
-            onClick={update_btn}
+            onClick={updateBtn}
             value={"Update"}
           />
         </Box>

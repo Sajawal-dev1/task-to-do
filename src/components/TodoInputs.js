@@ -1,15 +1,16 @@
 import { TextField } from "@mui/material";
 import { useController } from "react-hook-form";
-function Input(props) {
-  const { field } = useController(props);
+function Input({ name, placeholder, className, defaultValue,rules,control }) {
+  const { field } = useController({ name, control });
   return (
     <div>
       <TextField
         {...field}
-        name={props.name}
-        placeholder={props.placeholder}
-        className={props.className}
-        defaultValue={props.defaultValue}
+        name={name}
+        placeholder={placeholder}
+        className={className}
+        defaultValue={defaultValue}
+        rules={rules}
       />
     </div>
   );
