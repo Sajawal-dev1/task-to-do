@@ -4,7 +4,7 @@ export const tasksSlice = createSlice({
   initialState: [],
   reducers: {
     addTask: (state, action) => {
-      const length = JSON.parse(JSON.stringify(state)).length;
+      const length = state.length;
       const newTask = {
         id: length,
         name: action.payload.todo,
@@ -20,7 +20,7 @@ export const tasksSlice = createSlice({
       state[index].completed = action.payload.completed;
     },
     editTask: (state, action) => {
-      const todoList = JSON.parse(JSON.stringify(state));
+      const todoList = state;
       return todoList.map((item) => {
         if (item.id === action.payload.id) {
           return {

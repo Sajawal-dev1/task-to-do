@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import { Button } from "@material-ui/core";
 import { StyledEngineProvider } from "@mui/material/styles";
-const Buttons = ({ onClick, className, value }) => {
+const TaskButton = ({ onClick, className, value }) => {
   return (
     <StyledEngineProvider injectFirst>
       <Button className={className} onClick={() => onClick()}>
@@ -10,4 +10,5 @@ const Buttons = ({ onClick, className, value }) => {
     </StyledEngineProvider>
   );
 };
-export default Buttons;
+
+export default TaskButton;

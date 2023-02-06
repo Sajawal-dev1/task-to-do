@@ -1,18 +1,31 @@
-import { TextField } from "@mui/material";
+import React from "react";
+import { TextField } from "@material-ui/core";
 import { useController } from "react-hook-form";
-function Input({ name, placeholder, className, defaultValue, rules, control }) {
+import { StyledEngineProvider } from "@mui/material/styles";
+const TodoInput = ({
+  name,
+  placeholder,
+  defaultValue,
+  className,
+  rules,
+  control,
+  style,
+}) => {
   const { field } = useController({ name, control, rules });
   return (
-    <div>
+    <StyledEngineProvider injectFirst>
       <TextField
         {...field}
+        variant="outlined"
+        label={placeholder}
         name={name}
-        placeholder={placeholder}
-        className={className}
         defaultValue={defaultValue}
         rules={rules}
+        className={className}
+        style={style}
       />
-    </div>
+    </StyledEngineProvider>
   );
-}
-export default Input;
+};
+
+export default TodoInput;

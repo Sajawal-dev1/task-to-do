@@ -1,9 +1,4 @@
 /* MY CSS*/
-.Paragraph {
-  font-size: small;
-  font-weight: bold;
-  color: white;
-}
 .complete {
   text-decoration: line-through;
 }
@@ -26,7 +21,4 @@
   padding: 2rem 3rem 3rem;
   max-width: 500px;
   font-weight: bold;
-}
-.todo-list h1 {
-  font-size: 2.6rem;
 }

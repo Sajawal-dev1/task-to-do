@@ -1,23 +1,55 @@
 import React from "react";
-import "App.css";
+import { Grid, Typography, makeStyles, Divider } from "@material-ui/core";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
 import AddTaskFieldContainer from "container/AddTaskFieldContainer";
+const useStyles = makeStyles({
+  heading: {
+    fontWeight: 700,
+    fontSize: "2.5rem",
+    textAlign: "start",
+    marginBottom: "1rem",
+  },
+  Paragraph: {
+    fontSize: "small",
+    textAlign: "start",
+    marginBottom: "0.5rem",
+  },
+  divider: {
+    backgroundColor: "white",
+    marginBottom: "30px",
+  },
+});
 const TasksList = ({ todos }) => {
+  const classes = useStyles();
   return (
-    <div className="todo-list">
-      <h1 className="heading">TODO LIST</h1>
-      <h4 className="Paragraph">
-        TODO App by MergeStack<hr className="hr"></hr>
-      </h4>
-      {todos.map((todo) => (
-        <TaskFeaturesContainer
-          id={todo.id}
-          title={todo.name}
-          completed={todo.completed}
-        />
-      ))}
-      <AddTaskFieldContainer />
-    </div>
+    <Grid container className={"todo-list"}>
+      <Grid item xs={12}>
+        <Typography variant="h1" className={classes.heading}>
+          TODO LIST
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h4" className={classes.Paragraph}>
+          TODO App by MergeStack
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Divider className={classes.divider} />
+      </Grid>
+      <Grid item xs={12}>
+        {todos.map((todo) => (
+          <TaskFeaturesContainer
+            id={todo.id}
+            title={todo.name}
+            completed={todo.completed}
+          />
+        ))}
+      </Grid>
+      <Grid item xs={12}>
+        <AddTaskFieldContainer />
+      </Grid>
+    </Grid>
   );
 };
+
 export default TasksList;
