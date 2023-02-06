@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   muiTodo: {
     display: "flex",
     margin: "0 -3rem 4px",
-    padding: "1.1rem 3rem",
+    padding: "0.5rem 1.3rem",
     justifyContent: "space-between",
     background: "rgb(254 250 250 / 10%)",
     cursor: "pointer",

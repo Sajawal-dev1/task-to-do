@@ -12,6 +12,7 @@ const useStyles = makeStyles({
   Paragraph: {
     fontSize: "small",
     textAlign: "start",
+    fontWeight: "bold",
     marginBottom: "0.5rem",
   },
   divider: {

@@ -32,8 +32,10 @@ const useStyles = makeStyles({
       },
     },
   },
+  top: {
+    marginTop: "2.5rem",
+  },
 });
-
 const AddTaskField = ({ addTask }) => {
   const classes = useStyles();
   const { resetField, handleSubmit, control } = useForm({
@@ -41,7 +43,7 @@ const AddTaskField = ({ addTask }) => {
   });
   const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
   return (
-    <Box>
+    <Box className={classes.top}>
       <h3>Add New Task</h3>
       <Grid container>
         <Grid item xs={9}>
