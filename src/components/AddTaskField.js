@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, Card } from "@mui/material";
 import TodoInputs from "components/TodoInputs";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import TaskButton from "components/TodoButtons";
 const useStyles = makeStyles({
   todoBtn: {
     color: "white",
-    width: "100",
     padding: 10,
     border: "1px solid white",
     height: "56px",
@@ -52,7 +51,7 @@ const AddTaskField = ({ addTask }) => {
             style={{ borderColor: "white" }}
             control={control}
             name="todo"
-            placeholder="Add ToDo"
+            label="Add ToDo"
             rules={{ required: true }}
           />
         </Grid>

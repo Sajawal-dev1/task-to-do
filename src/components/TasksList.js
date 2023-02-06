@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, Typography, makeStyles, Divider } from "@material-ui/core";
+import { Grid, Typography, Divider } from "@mui/material";
+import {  makeStyles } from "@mui/styles";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
 import AddTaskFieldContainer from "container/AddTaskFieldContainer";
 const useStyles = makeStyles({

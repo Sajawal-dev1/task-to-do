@@ -1,10 +1,10 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
+import { TextField } from "@mui/material";
 import { useController } from "react-hook-form";
-import { StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider } from "@mui/styled-engine";
 const TodoInput = ({
   name,
-  placeholder,
+  label,
   defaultValue,
   className,
   rules,
@@ -17,7 +17,7 @@ const TodoInput = ({
       <TextField
         {...field}
         variant="outlined"
-        label={placeholder}
+        label={label}
         name={name}
         defaultValue={defaultValue}
         rules={rules}

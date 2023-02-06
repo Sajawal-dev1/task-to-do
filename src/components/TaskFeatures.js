@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
-import { Box, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Box, Grid } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import TodoInputs from "components/TodoInputs";
 import TaskButton from "components/TodoButtons";
 const useStyles = makeStyles({
