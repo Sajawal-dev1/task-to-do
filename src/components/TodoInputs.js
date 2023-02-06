@@ -27,5 +27,4 @@ const TodoInput = ({
     </StyledEngineProvider>
   );
 };
-
 export default TodoInput;

@@ -117,5 +117,4 @@ const TaskFeatures = ({
     </Box>
   );
 };
-
 export default TaskFeatures;

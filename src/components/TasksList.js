@@ -52,5 +52,4 @@ const TasksList = ({ todos }) => {
     </Grid>
   );
 };
-
 export default TasksList;

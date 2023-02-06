@@ -10,5 +10,4 @@ const TaskButton = ({ onClick, className, value }) => {
     </StyledEngineProvider>
   );
 };
-
 export default TaskButton;
