@@ -33,12 +33,12 @@ const useStyles = makeStyles({
   },
   top: {
     marginTop: "2.5rem",
-  },
+  }
 });
 const AddTaskField = ({ addTask }) => {
   const classes = useStyles();
   const { resetField, handleSubmit, control } = useForm({
-    defaultValues: { todo: "" },
+    defaultValues: { todo: "" }
   });
   const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
   return (
