@@ -33,14 +33,14 @@ const useStyles = makeStyles({
   },
   top: {
     marginTop: "2.5rem",
-  }
+  },
 });
 const AddTaskField = ({ addTask }) => {
   const classes = useStyles();
   const { resetField, handleSubmit, control } = useForm({
-    defaultValues: { todo: "" }
+    defaultValues: { todo: "" },
   });
-  const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
+  const submit = handleSubmit((data) => ((addTask(data), resetField("todo"))));
   return (
     <Box className={classes.top}>
       <h3>Add New Task</h3>
@@ -52,7 +52,7 @@ const AddTaskField = ({ addTask }) => {
             control={control}
             name="todo"
             label="Add ToDo"
-            rules={{ required: true }}
+            rules={{ required: "ADD value" }}
           />
         </Grid>
         <Grid item xs={3}>

@@ -15,10 +15,6 @@ export const tasksSlice = createSlice({
     deleteTask: (state, action) => {
       return state.filter((item) => item.id !== action.payload.id);
     },
-    toggleComplete: (state, action) => {
-      const index = state.findIndex((item) => item.id === action.payload.id);
-      state[index].completed = action.payload.completed;
-    },
     editTask: (state, action) => {
       const todoList = state;
       return todoList.map((item) => {
@@ -30,6 +26,10 @@ export const tasksSlice = createSlice({
         }
         return item;
       });
+    },
+    toggleComplete: (state, action) => {
+      const index = state.findIndex((item) => item.id === action.payload.id);
+      state[index].completed = action.payload.completed;
     },
   },
 });
