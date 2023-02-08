@@ -1,13 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { Box, List, ListItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import TodoInputs from "components/CommonComponents/TodoInputs";
-import TaskButton from "components/CommonComponents/TodoButtons";
-import TodoIconButtons from "components/CommonComponents/TodoIconButtons";
+import Input from "components/Common/Input";
+import Button from "components/Common/Button";
+import IconButton from "components/Common/IconButton";
 const useStyles = makeStyles({
   muiTodo: {
     display: "flex",
@@ -71,13 +70,10 @@ const TaskFeatures = ({
   showField,
   toggleComplete,
 }) => {
-  const classes =useStyles();
-   const {handleSubmit, control } = useForm()
-  const updateBtn = handleSubmit(
-    (data) => (editTask({ ...data, id })));
-  const deleteBtn=() => (deleteTask({ id }));
-  console.log(showField,"hello")
-  console.log(completed,"byee toggle")
+  const classes = useStyles();
+  const { handleSubmit, control } = useForm();
+  const updateBtn = handleSubmit((data) => editTask({ ...data, id }));
+  const deleteBtn = () => deleteTask({ id });
   return (
     <Box>
       <List className={classes.muiTodo}>
@@ -92,13 +88,13 @@ const TaskFeatures = ({
         </ListItem>
         <ListItem className={classes.muiButtons}>
           <IconContext.Provider value={{ color: "white" }}>
-            <TodoIconButtons
+            <IconButton
               onClick={() => {
                 toggleShowField({ id, showField: !showField });
               }}
               value={<MdModeEditOutline size="30px" />}
             />
-            <TodoIconButtons
+            <IconButton
               onClick={deleteBtn}
               value={<MdDelete size="30px" />}
             />
@@ -108,7 +104,7 @@ const TaskFeatures = ({
       {showField && (
         <List>
           <ListItem className={classes.muiTodoEdit}>
-            <TodoInputs
+            <Input
               className={classes.editField}
               styles={classes}
               control={control}
@@ -116,15 +112,14 @@ const TaskFeatures = ({
               name="todo"
               rules={{ required: true }}
             />
-            <TaskButton
+            <Button
               className={classes.muiEditBtn}
               onClick={updateBtn}
               value={"Update"}
             />
           </ListItem>
         </List>
-      )
-      }
+      )}
     </Box>
   );
 };

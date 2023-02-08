@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { Grid, Box } from "@mui/material";
-import TodoInputs from "components/CommonComponents/TodoInputs";
+import Input from "components/Common/Input";
 import { makeStyles } from "@mui/styles";
-import TodoButtons from "components/CommonComponents/TodoButtons";
+import Button from "components/Common/Button";
 const useStyles = makeStyles({
   todoBtn: {
     color: "white",
@@ -46,7 +46,7 @@ const AddTaskField = ({ addTask }) => {
       <h3>Add New Task</h3>
       <Grid container>
         <Grid item xs={9}>
-          <TodoInputs
+          <Input
             className={classes.textField}
             style={{ borderColor: "white" }}
             control={control}
@@ -56,7 +56,7 @@ const AddTaskField = ({ addTask }) => {
           />
         </Grid>
         <Grid item xs={3}>
-          <TodoButtons
+          <Button
             className={classes.todoBtn}
             onClick={submit}
             value="Add TODO"

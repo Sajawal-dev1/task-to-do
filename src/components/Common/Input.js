@@ -2,7 +2,7 @@ import React from "react";
 import { TextField } from "@mui/material";
 import { useController } from "react-hook-form";
 import { StyledEngineProvider } from "@mui/styled-engine";
-const TodoInput = ({
+const Input = ({
   name,
   label,
   defaultValue,
@@ -27,4 +27,4 @@ const TodoInput = ({
     </StyledEngineProvider>
   );
 };
-export default TodoInput;
+export default Input;

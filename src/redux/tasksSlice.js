@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 export const tasksSlice = createSlice({
   name: "tasks",
   initialState: [],
@@ -55,5 +54,4 @@ export const {
   editTask,
   toggleShowField,
 } = tasksSlice.actions;
-
 export default tasksSlice.reducer;

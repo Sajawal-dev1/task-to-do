@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { editTask, deleteTask, toggleComplete, toggleShowField } from "redux/tasksSlice";
+import {
+  editTask,
+  deleteTask,
+  toggleComplete,
+  toggleShowField,
+} from "redux/tasksSlice";
 import TaskFeatures from "components/TaskFeatures";
 import { bindActionCreators } from "redux";
 const mapDispatchToProps = (dispatch) => {
@@ -8,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
       editTask,
       deleteTask,
       toggleComplete,
-      toggleShowField
+      toggleShowField,
     },
     dispatch
   );
