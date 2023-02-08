@@ -1,16 +1,24 @@
 import React from "react";
-import { Grid, Typography, Divider } from "@mui/material";
-import {  makeStyles } from "@mui/styles";
+import { Card, Typography, Divider } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
 import AddTaskFieldContainer from "container/AddTaskFieldContainer";
 const useStyles = makeStyles({
+  card: {
+    background: "#ff6666",
+    color: "white",
+    margin: "4rem auto",
+    padding: "2rem 3rem 3rem",
+    maxWidth: "500px",
+    fontWeight: "bold",
+  },
   heading: {
     fontWeight: 700,
     fontSize: "2.5rem",
     textAlign: "start",
     marginBottom: "1rem",
   },
-  Paragraph: {
+  paragraph: {
     fontSize: "small",
     textAlign: "start",
     fontWeight: "bold",
@@ -24,33 +32,23 @@ const useStyles = makeStyles({
 const TasksList = ({ todos }) => {
   const classes = useStyles();
   return (
-    <Grid container className={"todo-list"}>
-      <Grid item xs={12}>
-        <Typography variant="h1" className={classes.heading}>
-          TODO LIST
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h4" className={classes.Paragraph}>
-          TODO App by MergeStack
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Divider className={classes.divider} />
-      </Grid>
-      <Grid item xs={12}>
-        {todos.map((todo) => (
-          <TaskFeaturesContainer
-            id={todo.id}
-            title={todo.name}
-            completed={todo.completed}
-          />
-        ))}
-      </Grid>
-      <Grid item xs={12}>
-        <AddTaskFieldContainer />
-      </Grid>
-    </Grid>
+    <Card className={classes.card}>
+      <Typography variant="h1" className={classes.heading}>
+        TODO LIST
+      </Typography>
+      <Typography variant="h4" className={classes.paragraph}>
+        TODO App by MergeStack
+      </Typography>
+      <Divider className={classes.divider} />
+      {todos.map((todo) => (
+        <TaskFeaturesContainer
+          id={todo.id}
+          title={todo.name}
+          completed={todo.completed}
+        />
+      ))}
+      <AddTaskFieldContainer />
+    </Card>
   );
 };
 export default TasksList;

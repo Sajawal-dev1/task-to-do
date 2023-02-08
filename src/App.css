@@ -2,23 +2,6 @@
 .complete {
   text-decoration: line-through;
 }
-.mui-todo-buttons {
-  flex-shrink: 0;
-  padding-left: 0.7em;
-}
-.mui-todo-buttons button {
-  font-size: 1em;
-  border: 50px;
-  cursor: pointer;
-  color: #fff;
-  margin: 0.4em;
-  background: none;
-}
-.todo-list {
-  background: #ff6666;
-  color: white;
-  margin: 4rem auto;
-  padding: 2rem 3rem 3rem;
-  max-width: 500px;
-  font-weight: bold;
+.btnColor{
+   color: white;
 }

@@ -2,37 +2,49 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
-import { Box, Grid } from "@mui/material";
+import { IconContext } from "react-icons";
+import { Box, List, ListItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import TodoInputs from "components/TodoInputs";
-import TaskButton from "components/TodoButtons";
+import TodoInputs from "components/CommonComponents/TodoInputs";
+import TaskButton from "components/CommonComponents/TodoButtons";
+import TodoIconButtons from "components/CommonComponents/TodoIconButtons";
 const useStyles = makeStyles({
   muiTodo: {
     display: "flex",
     margin: "0 -3rem 4px",
-    padding: "0.5rem 1.3rem",
+    padding: "0.5rem 2rem",
     justifyContent: "space-between",
     background: "rgb(254 250 250 / 10%)",
     cursor: "pointer",
   },
   muiTodoEdit: {
     display: "flex",
-    flexWrap: "wrap",
+    padding: "8px 0 8px 0 ",
   },
   muiEditBtn: {
     display: "flex",
     border: "1px solid white",
     color: "white",
-    marginLeft: 2,
+    marginLeft: "5px",
     padding: 15,
     justifyContent: "center",
-    width: "-webkit-fill-available",
+    width: "7.5rem",
+  },
+  muiButtons: {
+    display: "flex",
+    width: "auto",
+    fontSize: "1em",
+    border: "50px",
+    cursor: "pointer",
+    background: "none",
   },
   editField: {
     display: "flex",
+    justifyContent: "flex-start",
     backgroundColor: "white",
     borderRadius: 1,
     borderColor: "white",
+    width: "75%",
     "& label.Mui-focused": {
       color: "black",
     },
@@ -63,39 +75,34 @@ const TaskFeatures = ({
   const updateBtn = handleSubmit(
     (data) => (editTask({ ...data, id }), setShowEditField(false))
   );
-
   return (
     <Box>
-      <Box className={classes.muiTodo}>
-        <Grid container className={"mui-todo-buttons"}>
-          <Grid item xs={9}>
-            <Box
-              onClick={() => {
-                toggleComplete({ id, completed: !completed });
-              }}
-              className={"complete" + (completed === false ? "active" : "")}
-              sx={{ marginRight: "2rem", padding: "1.2rem" }}
-            >
-              {title}
-            </Box>
-          </Grid>
-          <Grid item xs={1}>
-            <TaskButton
+      <List className={classes.muiTodo}>
+        <ListItem
+          onClick={() => {
+            toggleComplete({ id, completed: !completed });
+          }}
+          className={"complete" + (completed === false ? "active" : "")}
+          style={{ marginRight: "2rem", padding: "1.2rem" }}
+        >
+          {title}
+        </ListItem>
+        <ListItem className={classes.muiButtons}>
+          <IconContext.Provider value={{ color: "white" }}>
+            <TodoIconButtons
               onClick={() => setShowEditField(!showEditField)}
               value={<MdModeEditOutline size="30px" />}
             />
-          </Grid>
-          <Grid item xs={1}>
-            <TaskButton
+            <TodoIconButtons
               onClick={() => deleteTask({ id })}
               value={<MdDelete size="30px" />}
             />
-          </Grid>
-        </Grid>
-      </Box>
+          </IconContext.Provider>
+        </ListItem>
+      </List>
       {showEditField && (
-        <Grid container>
-          <Grid item xs={9}>
+        <List>
+          <ListItem className={classes.muiTodoEdit}>
             <TodoInputs
               className={classes.editField}
               styles={classes}
@@ -104,15 +111,13 @@ const TaskFeatures = ({
               defaultValue={title}
               rules={{ required: true }}
             />
-          </Grid>
-          <Grid item xs={3}>
             <TaskButton
               className={classes.muiEditBtn}
               onClick={updateBtn}
               value={"Update"}
             />
-          </Grid>
-        </Grid>
+          </ListItem>
+        </List>
       )}
     </Box>
   );
