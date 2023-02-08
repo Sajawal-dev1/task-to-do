@@ -45,6 +45,7 @@ const TasksList = ({ todos }) => {
           id={todo.id}
           title={todo.name}
           completed={todo.completed}
+          showField={todo.showField}
         />
       ))}
       <AddTaskFieldContainer />

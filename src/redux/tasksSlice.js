@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 export const tasksSlice = createSlice({
   name: "tasks",
   initialState: [],
@@ -9,6 +10,7 @@ export const tasksSlice = createSlice({
         id: length,
         name: action.payload.todo,
         completed: false,
+        showField: false,
       };
       state.push(newTask);
     },
@@ -22,6 +24,7 @@ export const tasksSlice = createSlice({
           return {
             ...item,
             name: action.payload.todo,
+            showField: false,
           };
         }
         return item;
@@ -31,8 +34,26 @@ export const tasksSlice = createSlice({
       const index = state.findIndex((item) => item.id === action.payload.id);
       state[index].completed = action.payload.completed;
     },
+    toggleShowField: (state, action) => {
+      const todoList = state;
+      return todoList.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            showField: !item.showField,
+          };
+        }
+        return { ...item, showField: false };
+      });
+    },
   },
 });
-export const { addTask, deleteTask, toggleComplete, editTask } =
-  tasksSlice.actions;
+export const {
+  addTask,
+  deleteTask,
+  toggleComplete,
+  editTask,
+  toggleShowField,
+} = tasksSlice.actions;
+
 export default tasksSlice.reducer;

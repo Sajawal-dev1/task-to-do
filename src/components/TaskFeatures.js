@@ -67,14 +67,17 @@ const TaskFeatures = ({
   completed,
   editTask,
   deleteTask,
+  toggleShowField,
+  showField,
   toggleComplete,
 }) => {
-  const classes = useStyles();
-  const { control, handleSubmit } = useForm();
-  const [showEditField, setShowEditField] = useState(false);
+  const classes =useStyles();
+   const {handleSubmit, control } = useForm()
   const updateBtn = handleSubmit(
-    (data) => (editTask({ ...data, id }), setShowEditField(false))
-  );
+    (data) => (editTask({ ...data, id })));
+  const deleteBtn=() => (deleteTask({ id }));
+  console.log(showField,"hello")
+  console.log(completed,"byee toggle")
   return (
     <Box>
       <List className={classes.muiTodo}>
@@ -90,25 +93,27 @@ const TaskFeatures = ({
         <ListItem className={classes.muiButtons}>
           <IconContext.Provider value={{ color: "white" }}>
             <TodoIconButtons
-              onClick={() => setShowEditField(!showEditField)}
+              onClick={() => {
+                toggleShowField({ id, showField: !showField });
+              }}
               value={<MdModeEditOutline size="30px" />}
             />
             <TodoIconButtons
-              onClick={() => deleteTask({ id })}
+              onClick={deleteBtn}
               value={<MdDelete size="30px" />}
             />
           </IconContext.Provider>
         </ListItem>
       </List>
-      {showEditField && (
+      {showField && (
         <List>
           <ListItem className={classes.muiTodoEdit}>
             <TodoInputs
               className={classes.editField}
               styles={classes}
               control={control}
-              name="todo"
               defaultValue={title}
+              name="todo"
               rules={{ required: true }}
             />
             <TaskButton
@@ -118,7 +123,8 @@ const TaskFeatures = ({
             />
           </ListItem>
         </List>
-      )}
+      )
+      }
     </Box>
   );
 };
