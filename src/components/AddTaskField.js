@@ -1,24 +1,38 @@
 import { useForm } from "react-hook-form";
-import { Box } from "@mui/material";
-import Buttons from "components/TodoButtons";
-import Input from "components/TodoInputs";
+import { Grid, Box } from "@mui/material";
+import Input from "components/Common/Input";
 import { makeStyles } from "@mui/styles";
+import Button from "components/Common/Button";
 const useStyles = makeStyles({
   todoBtn: {
     color: "white",
-    width: "28%",
+    padding: 10,
     border: "1px solid white",
     height: "56px",
-    marginTop: "auto",
     textAlign: "center",
-    marginLeft: "71%",
-    marginRight: "71%",
-    bottom: "56px",
+    marginLeft: "5px",
+    width: "-webkit-fill-available",
   },
   textField: {
     backgroundColor: "white",
-    borderRadius: 1,
-    width: "70%",
+    width: "100%",
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+  },
+  top: {
+    marginTop: "2.5rem",
   },
 });
 const AddTaskField = ({ addTask }) => {
@@ -28,16 +42,27 @@ const AddTaskField = ({ addTask }) => {
   });
   const submit = handleSubmit((data) => (addTask(data), resetField("todo")));
   return (
-    <Box sx={{ marginTop: 30 % { display: "flex" } }}>
+    <Box className={classes.top}>
       <h3>Add New Task</h3>
-      <Input
-        className={classes.textField}
-        control={control}
-        name="todo"
-        placeholder="Add ToDo"
-        rules={{ required: true }}
-      />
-      <Buttons className={classes.todoBtn} onClick={submit} value="Add TODO" />
+      <Grid container>
+        <Grid item xs={9}>
+          <Input
+            className={classes.textField}
+            style={{ borderColor: "white" }}
+            control={control}
+            name="todo"
+            label="Add ToDo"
+            rules={{ required: "ADD value" }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            className={classes.todoBtn}
+            onClick={submit}
+            value="Add TODO"
+          />
+        </Grid>
+      </Grid>
     </Box>
   );
 };
