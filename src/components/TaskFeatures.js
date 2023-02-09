@@ -4,7 +4,6 @@ import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { Box, List, ListItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useState } from "react";
 import Input from "components/Common/Input";
 import Button from "components/Common/Button";
 import IconButton from "components/Common/IconButton";
@@ -62,20 +61,20 @@ const useStyles = makeStyles({
   },
 });
 const TaskFeatures = ({
-  id,
-  title,
-  completed,
+ todo,
   editTask,
   deleteTask,
   showFieldId,
+  setCheckEditField,
+  checkEditField,
   toggleShowField,
   toggleComplete,
 }) => {
   const classes = useStyles();
-  const [checkEditField, setCheckEditField] = useState(false);
   const { handleSubmit, control } = useForm();
   const updateBtn = handleSubmit((data) => editTask({ ...data, id }));
   const deleteBtn = () => deleteTask({ id });
+const {id,name:title,completed} = todo;
   return (
     <Box>
       <List className={classes.muiTodo}>

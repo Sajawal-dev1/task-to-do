@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Typography, Divider } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import TaskFeaturesContainer from "container/TaskFeaturesContainer";
@@ -30,7 +30,11 @@ const useStyles = makeStyles({
   },
 });
 const TasksList = ({ todos }) => {
+  const [checkEditField, setCheckEditField] = useState(false);
   const classes = useStyles();
+  useEffect(() => {
+    setCheckEditField(true);
+  }, [todos.showFieldId]);
   return (
     <Card className={classes.card}>
       <Typography variant="h1" className={classes.heading}>
@@ -43,9 +47,9 @@ const TasksList = ({ todos }) => {
       {todos.tasks.map((todo) => (
         <TaskFeaturesContainer
           key={todo.id}
-          id={todo.id}
-          title={todo.name}
-          completed={todo.completed}
+          todo={todo}
+          checkEditField={checkEditField}
+          setCheckEditField={setCheckEditField}
           showFieldId={todos.showFieldId}
         />
       ))}
