@@ -40,12 +40,13 @@ const TasksList = ({ todos }) => {
         TODO App by MergeStack
       </Typography>
       <Divider className={classes.divider} />
-      {todos.map((todo) => (
+      {todos.tasks.map((todo) => (
         <TaskFeaturesContainer
+          key={todo.id}
           id={todo.id}
           title={todo.name}
           completed={todo.completed}
-          showField={todo.showField}
+          showFieldId={todos.showFieldId}
         />
       ))}
       <AddTaskFieldContainer />

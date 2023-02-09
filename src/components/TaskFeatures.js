@@ -66,6 +66,7 @@ const TaskFeatures = ({
   completed,
   editTask,
   deleteTask,
+  showFieldId,
   toggleShowField,
   showField,
   toggleComplete,
@@ -90,18 +91,15 @@ const TaskFeatures = ({
           <IconContext.Provider value={{ color: "white" }}>
             <IconButton
               onClick={() => {
-                toggleShowField({ id, showField: !showField });
+                toggleShowField({ id, showFieldId });
               }}
               value={<MdModeEditOutline size="30px" />}
             />
-            <IconButton
-              onClick={deleteBtn}
-              value={<MdDelete size="30px" />}
-            />
+            <IconButton onClick={deleteBtn} value={<MdDelete size="30px" />} />
           </IconContext.Provider>
         </ListItem>
       </List>
-      {showField && (
+      {showFieldId === id ? (
         <List>
           <ListItem className={classes.muiTodoEdit}>
             <Input
@@ -119,7 +117,7 @@ const TaskFeatures = ({
             />
           </ListItem>
         </List>
-      )}
+      ) : null}
     </Box>
   );
 };

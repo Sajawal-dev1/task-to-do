@@ -1,49 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState: [],
+  initialState: {
+    tasks: [],
+    showFieldId: null,
+  },
   reducers: {
     addTask: (state, action) => {
-      const length = state.length;
+      const length = state.tasks.length;
       const newTask = {
         id: length,
         name: action.payload.todo,
         completed: false,
-        showField: false,
       };
-      state.push(newTask);
+      state.tasks.push(newTask);
     },
     deleteTask: (state, action) => {
-      return state.filter((item) => item.id !== action.payload.id);
+      state.tasks = state.tasks.filter((item) => item.id !== action.payload.id);
     },
     editTask: (state, action) => {
-      const todoList = state;
-      return todoList.map((item) => {
+      const todoList = state.tasks;
+      state.tasks = todoList.map((item) => {
         if (item.id === action.payload.id) {
           return {
             ...item,
             name: action.payload.todo,
-            showField: false,
           };
         }
         return item;
       });
+      state.showFieldId = null;
     },
     toggleComplete: (state, action) => {
-      const index = state.findIndex((item) => item.id === action.payload.id);
-      state[index].completed = action.payload.completed;
+      const index = state.tasks.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.tasks[index].completed = action.payload.completed;
     },
     toggleShowField: (state, action) => {
-      const todoList = state;
-      return todoList.map((item) => {
-        if (item.id === action.payload.id) {
-          return {
-            ...item,
-            showField: !item.showField,
-          };
-        }
-        return { ...item, showField: false };
-      });
+      state.showFieldId = action.payload.id;
     },
   },
 });
