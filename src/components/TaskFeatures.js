@@ -61,7 +61,7 @@ const useStyles = makeStyles({
   },
 });
 const TaskFeatures = ({
- todo,
+  todo,
   editTask,
   deleteTask,
   showFieldId,
@@ -74,7 +74,7 @@ const TaskFeatures = ({
   const { handleSubmit, control } = useForm();
   const updateBtn = handleSubmit((data) => editTask({ ...data, id }));
   const deleteBtn = () => deleteTask({ id });
-const {id,name:title,completed} = todo;
+  const { id, name: title, completed } = todo;
   return (
     <Box>
       <List className={classes.muiTodo}>
