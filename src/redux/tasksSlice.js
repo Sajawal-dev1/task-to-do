@@ -7,7 +7,7 @@ export const tasksSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-      const length = state.tasks.length;
+      const length = new Date()
       const newTask = {
         id: length,
         name: action.payload.todo,
