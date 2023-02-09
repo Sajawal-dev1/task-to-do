@@ -4,6 +4,7 @@ import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { Box, List, ListItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useState } from "react";
 import Input from "components/Common/Input";
 import Button from "components/Common/Button";
 import IconButton from "components/Common/IconButton";
@@ -68,10 +69,10 @@ const TaskFeatures = ({
   deleteTask,
   showFieldId,
   toggleShowField,
-  showField,
   toggleComplete,
 }) => {
   const classes = useStyles();
+  const [checkEditField, setCheckEditField] = useState(false);
   const { handleSubmit, control } = useForm();
   const updateBtn = handleSubmit((data) => editTask({ ...data, id }));
   const deleteBtn = () => deleteTask({ id });
@@ -92,6 +93,7 @@ const TaskFeatures = ({
             <IconButton
               onClick={() => {
                 toggleShowField({ id, showFieldId });
+                setCheckEditField(!checkEditField);
               }}
               value={<MdModeEditOutline size="30px" />}
             />
@@ -99,7 +101,7 @@ const TaskFeatures = ({
           </IconContext.Provider>
         </ListItem>
       </List>
-      {showFieldId === id ? (
+      {showFieldId === id && checkEditField == true ? (
         <List>
           <ListItem className={classes.muiTodoEdit}>
             <Input
