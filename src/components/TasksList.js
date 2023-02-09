@@ -30,10 +30,11 @@ const useStyles = makeStyles({
   },
 });
 const TasksList = ({ todos }) => {
-  const [checkEditField, setCheckEditField] = useState(false);
   const classes = useStyles();
+  const [showEditField, setShowEditField] = useState(false);
+
   useEffect(() => {
-    setCheckEditField(true);
+    setShowEditField(true);
   }, [todos.showFieldId]);
   return (
     <Card className={classes.card}>
@@ -48,8 +49,8 @@ const TasksList = ({ todos }) => {
         <TaskFeaturesContainer
           key={todo.id}
           todo={todo}
-          checkEditField={checkEditField}
-          setCheckEditField={setCheckEditField}
+          showEditField={showEditField}
+          setShowEditField={setShowEditField}
           showFieldId={todos.showFieldId}
         />
       ))}

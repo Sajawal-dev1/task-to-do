@@ -65,16 +65,16 @@ const TaskFeatures = ({
   editTask,
   deleteTask,
   showFieldId,
-  setCheckEditField,
-  checkEditField,
+  setShowEditField,
+  showEditField,
   toggleShowField,
   toggleComplete,
 }) => {
   const classes = useStyles();
-  const { handleSubmit, control } = useForm();
+  const {id,name:title,completed} = todo;
   const updateBtn = handleSubmit((data) => editTask({ ...data, id }));
   const deleteBtn = () => deleteTask({ id });
-  const {id,name:title,completed} = todo;
+  const { handleSubmit, control } = useForm();
   return (
     <Box>
       <List className={classes.muiTodo}>
@@ -92,7 +92,7 @@ const TaskFeatures = ({
             <IconButton
               onClick={() => {
                 toggleShowField({ id, showFieldId });
-                setCheckEditField(!checkEditField);
+                setShowEditField(!showEditField);
               }}
               value={<MdModeEditOutline size="30px" />}
             />
@@ -100,7 +100,7 @@ const TaskFeatures = ({
           </IconContext.Provider>
         </ListItem>
       </List>
-      {showFieldId === id && checkEditField === true ? (
+      {showFieldId === id && showEditField === true ? (
         <List>
           <ListItem className={classes.muiTodoEdit}>
             <Input
